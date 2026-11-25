@@ -15,6 +15,8 @@ dialog{border:2px solid #373548;background:var(--paper);color:var(--ink);width:m
 @media(max-height:520px) and (orientation:landscape){.top{height:42px}.brand{font-size:17px}main{max-width:770px;padding-top:9px}.hero{aspect-ratio:3.9}.hero-type{top:7%}.hero h1{font-size:54px}.hero p{margin-top:2px}.hero-cat{width:18%;top:10%}.dispatch{padding:9px 18px 13px}.dispatch h2{font-size:22px}.dispatch .kicker{display:none}.album-line{margin-top:9px;min-height:48px;padding-block:6px}.foot{margin-top:6px}body.playing header{display:none}body.playing main{width:min(100% - max(24px,env(safe-area-inset-left)*2),900px);padding:0 0 env(safe-area-inset-bottom)}#play{height:calc(100dvh - env(safe-area-inset-bottom));display:flex;flex-direction:column}.hud{padding:2px 12px;gap:30px}.hud>div{display:flex;align-items:baseline;gap:8px}.hud button{height:38px}.field{flex:1;min-height:0;height:auto;aspect-ratio:auto}.pad{flex-direction:row;align-items:center;padding:5px 14px 7px}.pad button{min-height:38px;padding:6px 13px;font-size:16px}.gauge-label{margin-bottom:3px}}
 @media(prefers-reduced-motion:reduce){.hero-cat{animation:none}}
 .brand-mark svg{width:21px;height:21px}
+dialog{word-break:keep-all}
+dialog h2{font-size:clamp(24px,6.6vw,32px);line-height:1.25}
 @media(max-width:600px) and (orientation:portrait){
   body.playing main{padding-bottom:max(10px,env(safe-area-inset-bottom))}
   #play{display:flex;flex-direction:column;height:min(800px,calc(100dvh - 74px - env(safe-area-inset-top) - env(safe-area-inset-bottom)));min-height:340px}

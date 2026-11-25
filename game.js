@@ -74,6 +74,16 @@
     }
   }
   $('full').onclick=()=>fullscreen(true);
+  const wideTouch=matchMedia('(orientation: landscape) and (pointer: coarse)');
+  let needsWideScreen=false;
+  function onOrientation(){needsWideScreen=wideTouch.matches;}
+  if(wideTouch.addEventListener)wideTouch.addEventListener('change',onOrientation);
+  else wideTouch.addListener(onOrientation);
+  function fitLandscape(){
+    if(!needsWideScreen)return;
+    needsWideScreen=false;
+    if(!document.fullscreenElement && !document.webkitFullscreenElement)fullscreen(false);
+  }
   const randomSource=seed=>()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
   function route(seed){
     const rng=randomSource(seed),roofs=[{id:0,x:-42,y:0,w:84}];
@@ -95,7 +105,7 @@
   }
   function start(mode){
     dismiss();cancelAnimationFrame(raf);wakeSound();
-    if(matchMedia('(orientation: landscape) and (pointer: coarse)').matches)fullscreen(false);
+    onOrientation();fitLandscape();
     const date=today(),seed=mode==='daily'?Number(date.replaceAll('-','')):Math.floor(Math.random()*4294967296);
     s={mode,date,roofs:route(seed),index:0,x:0,y:0,camera:0,score:0,lives:3,streak:0,perfect:0,
       phase:'ready',paused:false,time:0,age:0,power:0,distance:minDist,sparks:[],newStamps:[],messageAge:0};
@@ -122,6 +132,7 @@
   }
   function charge(id){
     if(!s || s.paused || s.phase!=='ready' || input!==null || sheet.open)return false;
+    fitLandscape();
     input=id;s.phase='charge';s.age=0;s.power=0;s.distance=minDist;shout('',0);wakeSound();
     $('jump').firstChild.textContent='손을 떼어 점프! ';return true;
   }
