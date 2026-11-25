@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#181c30">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="길게 눌렀다 톡! 우편 고양이와 달빛 아래 여덟 지붕을 건너세요.">
+<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="달밤우편 · NIGHT POST">
+<meta property="og:description" content="오늘 밤, 여덟 통의 편지가 기다린다. 길게 눌렀다 떼는 고양이 옥상 점프 게임.">
+<meta property="og:url" content="https://hadangs516.github.io/night-post/">
+<meta property="og:image" content="https://hadangs516.github.io/night-post/assets/night-post.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="살구빛 보름달 앞으로 우편 가방을 멘 고양이가 지붕 사이를 뛰어넘는 달밤우편 포스터">
+<link rel="icon" href="favicon.ico"><link rel="apple-touch-icon" href="assets/touch.png"><link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" as="font" type="font/woff2" href="assets/neodgm.woff2" crossorigin>
+<link rel="stylesheet" href="style.css"><title>달밤우편 · NIGHT POST</title>
+</head><body>
+<header><div class="top">
+<div class="brand"><span class="brand-mark" data-icon="mail" aria-hidden="true"></span><span>NIGHT POST</span></div>
+<nav aria-label="게임 도구"><button id="sound" aria-label="소리 켜기" title="소리 켜기"></button><button id="full" aria-label="전체 화면" title="전체 화면"></button><button id="help" aria-label="게임 방법" title="게임 방법"></button></nav>
+</div></header>
+<main>
+<section id="home" aria-label="달밤우편 게임 시작">
+<div class="case">
+<div class="hero">
+<div class="hero-type"><div class="night">NIGHT POST</div><h1>달밤우편</h1><p>여덟 통을 싣고, 지붕 너머로.</p></div>
+<img class="hero-cat" src="assets/courier.png" alt="붉은 우편 가방을 메고 뛰는 고양이">
+<span class="airmail a1" aria-hidden="true"></span><span class="airmail a2" aria-hidden="true"></span>
+<div class="scene-tag"><span></span> 달맞이동</div>
+</div>
+<div class="dispatch"><div class="dispatch-info"><span class="kicker">DISPATCH DESK</span><h2>야간 배달 접수</h2><p>꾹 눌러 힘을 모으고, 손을 떼어 점프!</p></div><div class="choices">
+<button id="free" class="primary"><span data-icon="mail"></span>배달 시작<span class="arrow">→</span></button>
+<button id="daily" class="secondary"><span data-icon="calendar"></span>오늘의 배달<span class="arrow">→</span></button></div></div>
+</div>
+<button class="album-line" id="album"><span class="album-icon" data-icon="album"></span><span class="album-name">우표 수집첩 <small>STAMP BOOK</small></span><span class="samples" aria-hidden="true"></span><span id="album-count">0 / 6</span><span class="arrow">→</span></button>
+<div class="foot"><span>✦ &nbsp; 달맞이동 야간우체국</span><span id="best-home">최고 기록 &nbsp; 0점</span></div>
+</section>
+<section id="play" hidden aria-label="옥상 배달">
+<div class="hud"><div><small id="mode-label"></small><strong id="progress"></strong></div><div><small>점수</small><strong id="score"></strong></div><div><small>남은 기회</small><strong id="lives"></strong></div><button id="pause" aria-label="잠시 멈춤" title="잠시 멈춤"></button></div>
+<div class="field" id="field"><canvas id="world" aria-label="고양이와 다음 우편함이 있는 지붕"></canvas><div id="shout" aria-live="polite"></div><span class="map-name" id="district"></span></div>
+<div class="pad"><div class="gauge-wrap"><div class="gauge-label"><span>점프 거리</span><span id="meter-note">금색 구간을 노려요</span></div><div class="gauge"><i id="zone"></i><b id="needle"></b></div></div><button id="jump">꾹 눌렀다 떼기 <kbd>SPACE</kbd></button></div>
+</section>
+</main>
+<dialog id="sheet"><div class="sheet-head"><span class="kicker">NIGHT POST</span><button id="close" aria-label="닫기">×</button></div><h2 id="sheet-title"></h2><div id="sheet-body"></div><div class="modal-actions" id="sheet-actions"></div></dialog>
+<script src="scene.js" defer></script><script src="game.js" defer></script>
+</body></html>
